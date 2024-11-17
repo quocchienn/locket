@@ -1,0 +1,33 @@
+name: |-
+  Locket Gold
+desc: |-
+  By: Quốc Chiến ❤️‍🩹
+icon: |-
+  https://raw.githubusercontent.com/quocchienn/quocchien/refs/heads/Quocchien_Module/3FBB33AB-A7A3-4EFD-85C3-45653C4255E6.webp
+
+http:
+
+  mitm:
+    - "api.revenuecat.com"
+
+  script:
+    - match: ^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$)
+      name: "locket-gold-response"
+      type: response
+      require-body: true
+      max-size: 0
+      timeout: 60
+
+    - match: ^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers)
+      name: "locket-gold-request"
+      type: request
+      timeout: 60
+
+script-providers:
+  "locket-gold-response":
+    url: https://raw.githubusercontent.com/quocchienn/locket/refs/heads/Gold/Locket_Gold_v89.js
+    interval: 86400
+
+  "locket-gold-request":
+    url: https://raw.githubusercontent.com/quocchienn/lockcrack/refs/heads/module/deleteheader.js
+    interval: 86400
